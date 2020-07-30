@@ -9,6 +9,7 @@ export default {
     props: { chartData: { type: Array, required: true } },
     watch: {
         chartData: function() {
+            this.chart.data.labels = this.chartData.map((data, index) => index);
             this.chart.data.datasets[0].data = this.chartData.map(data => data[0]);
             this.chart.data.datasets[1].data = this.chartData.map(data => data[1]);
             this.chart.update();
